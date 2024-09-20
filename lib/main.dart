@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
             "My First APP",
             style: TextStyle(),
           ),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.green,
           centerTitle: true,
         ),
         body: Center(
