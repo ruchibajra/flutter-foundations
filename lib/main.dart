@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
           "My First APP",
           style: TextStyle(),
         ),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.red,
         centerTitle: true,
       ),
       body: const Center(
@@ -20,7 +20,7 @@ class Home extends StatelessWidget {
           style: TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
-              color: Colors.blue,
+              color: Colors.red,
               fontFamily: 'IndieFlower'),
         ),
       ),
