@@ -16,28 +16,24 @@ class Home extends StatelessWidget {
           backgroundColor: Colors.blue,
           centerTitle: true,
         ),
-        body: Center(
-          // Icon
-          // child: Icon(Icons.airport_shuttle, color: Colors.red, size: 50.0),
+        body: Padding(
+          padding: EdgeInsets.all(90.0),
+          child: Text("ruchi don"),
+        )
 
-          // child: OutlinedButton(
-          //     onPressed: () {
-          //       print("you just clicked me!");
-          //     },
-          //     child: const Text("click me")),
+        // Container(
+        //   // padding: EdgeInsets.all(20.0),
+        //   // padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
 
-          //     child: ElevatedButton.icon(
-          //   onPressed: () {},
-          //   icon: Icon(Icons.mail),
-          //   label: const Text('hi'),
-          // )
-
-          child: IconButton(
-            onPressed: () {
-              print("YOU CLICKED ME!");
-            },
-            icon: Icon(Icons.alternate_email),
-          ),
-        ));
+        //   padding: EdgeInsets.fromLTRB(10.0, 40.0, 5.0, 15.0),
+        //   margin: EdgeInsets.all(30.0),
+        //   color: Colors.green,
+        //   child: Text("ruchi"),
+        // )
+        );
   }
 }
+
+
+// NOTE: Container Widget can have padding, margin, colors and so on but if you want
+//  to have only padding and no other properties then can use the widget Padding.
