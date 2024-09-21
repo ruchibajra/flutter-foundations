@@ -13,16 +13,31 @@ class Home extends StatelessWidget {
             "My First APP",
             style: TextStyle(),
           ),
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.blue,
           centerTitle: true,
         ),
         body: Center(
-          // three ways to add image:
+          // Icon
+          // child: Icon(Icons.airport_shuttle, color: Colors.red, size: 50.0),
 
-          // child: Image(image: AssetImage('assets/sunset.jpg')),
-          // child: Image.asset('assets/sunflower.jpg'),
-          child: Image.network(
-              'https://plus.unsplash.com/premium_photo-1703606029674-a461a6ee8045?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+          // child: OutlinedButton(
+          //     onPressed: () {
+          //       print("you just clicked me!");
+          //     },
+          //     child: const Text("click me")),
+
+          //     child: ElevatedButton.icon(
+          //   onPressed: () {},
+          //   icon: Icon(Icons.mail),
+          //   label: const Text('hi'),
+          // )
+
+          child: IconButton(
+            onPressed: () {
+              print("YOU CLICKED ME!");
+            },
+            icon: Icon(Icons.alternate_email),
+          ),
         ));
   }
 }
