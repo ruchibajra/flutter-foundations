@@ -16,21 +16,24 @@ class Home extends StatelessWidget {
           backgroundColor: Colors.blue,
           centerTitle: true,
         ),
-        body: Padding(
-          padding: EdgeInsets.all(90.0),
-          child: Text("ruchi don"),
-        )
-
-        // Container(
-        //   // padding: EdgeInsets.all(20.0),
-        //   // padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
-
-        //   padding: EdgeInsets.fromLTRB(10.0, 40.0, 5.0, 15.0),
-        //   margin: EdgeInsets.all(30.0),
-        //   color: Colors.green,
-        //   child: Text("ruchi"),
-        // )
-        );
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Text("hello world"),
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                  foregroundColor: Colors.white, backgroundColor: Colors.brown),
+              onPressed: () {},
+              child: Text('click me'),
+            ),
+            Container(
+              color: Colors.red,
+              padding: EdgeInsets.all(50.0),
+              child: Text("inside the container"),
+            )
+          ],
+        ));
   }
 }
 
