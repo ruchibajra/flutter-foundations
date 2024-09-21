@@ -2,113 +2,41 @@
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(NinjaCard());
+void main() => runApp(QuoteList());
 
-class NinjaCard extends StatefulWidget {
+class QuoteList extends StatefulWidget {
+  const QuoteList({super.key});
+
   @override
-  State<NinjaCard> createState() => _NinjaCardState();
+  State<QuoteList> createState() => _QuoteListState();
 }
 
-class _NinjaCardState extends State<NinjaCard> {
-  int ninjalevel = 0;
+class _QuoteListState extends State<QuoteList> {
+  List<String> quotes = [
+    "Be yourself! everyone else is already taken.",
+    "It's okay to say no to things that you WANT and focus on things that you NEED to do",
+    "Its better to go slowly than not to move at all"
+  ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.grey[900],
-        appBar: AppBar(
-          title: Text('Ninja ID Card'),
-          centerTitle: true,
-          backgroundColor: Colors.grey[850],
-          foregroundColor: Colors.white,
-          elevation: 0.0,
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() {
-              ninjalevel += 1;
-            });
-          },
-          child: Icon(Icons.add),
-          backgroundColor: Colors.grey[800],
-          foregroundColor: Colors.white,
-        ),
-        body: Padding(
-          padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: CircleAvatar(
-                  backgroundImage: AssetImage('assets/ninja.png'),
-                  radius: 40.0,
-                ),
-              ),
-              Divider(
-                height: 90.0,
-                color: Colors.grey[800],
-              ),
-              Text('NAME',
-                  style: TextStyle(color: Colors.grey, letterSpacing: 2.0)),
-              SizedBox(height: 10.0),
-              Text(
-                'Ruchi',
-                style: TextStyle(
-                    color: Colors.amberAccent[200],
-                    letterSpacing: 2.0,
-                    fontSize: 28.0,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 30.0),
-              Text('CURRENT NINJA LEVEL',
-                  style: TextStyle(color: Colors.grey, letterSpacing: 2.0)),
-              SizedBox(height: 10.0),
-              Text(
-                '$ninjalevel',
-                style: TextStyle(
-                    color: Colors.amberAccent[200],
-                    letterSpacing: 2.0,
-                    fontSize: 28.0,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 30.0),
-              Row(
-                children: [
-                  Icon(
-                    Icons.email,
-                    color: Colors.grey[400],
-                  ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  Text(
-                    'ruchibajra@gmail.com',
-                    style: TextStyle(
-                        color: Colors.grey[400],
-                        fontSize: 18.0,
-                        letterSpacing: 1.0),
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
+        home: Scaffold(
+      backgroundColor: Colors.grey[200],
+      appBar: AppBar(
+        title: Text('Awesome Quotes!'),
+        centerTitle: true,
+        backgroundColor: Colors.redAccent,
+        foregroundColor: Colors.white,
       ),
-    );
-  }
-}
+      body: Column(
+        children: quotes.map((quote) => Text(quote)).toList(),
 
-class Test extends StatefulWidget {
-  const Test({super.key});
-
-  @override
-  State<Test> createState() => _TestState();
-}
-
-class _TestState extends State<Test> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
+        // Same thing as above, as arrow fn can be wriiten in one line so we used above code.
+        // children: quotes.map((quote) {
+        //   return Text(quote);
+        // }).toList(),
+      ),
+    ));
   }
 }
