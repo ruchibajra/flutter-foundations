@@ -1,28 +1,52 @@
 // #8 - Images & Assets
 
 import 'package:flutter/material.dart';
+import 'quote.dart';
 
-void main() => runApp(MaterialApp(home: Home()));
+void main() => runApp(QuoteList());
 
-class Home extends StatelessWidget {
+class QuoteList extends StatefulWidget {
+  const QuoteList({super.key});
+
+  @override
+  State<QuoteList> createState() => _QuoteListState();
+}
+
+class _QuoteListState extends State<QuoteList> {
+  List<Quote> quotes = [
+    Quote(
+        author: 'Ellon Mosk',
+        text: 'Be yourself! everyone else is already taken.'),
+    Quote(
+        author: 'Mark Zuckerberg',
+        text:
+            'Its okay to say no to things that you WANT and focus on things that you NEED to do'),
+    Quote(
+        author: 'Yrary',
+        text: 'Its better to go slowly than not to move at all')
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            "My First APP",
-            style: TextStyle(),
-          ),
-          backgroundColor: Colors.green,
-          centerTitle: true,
-        ),
-        body: Center(
-          // three ways to add image:
+    return MaterialApp(
+        home: Scaffold(
+      backgroundColor: Colors.grey[200],
+      appBar: AppBar(
+        title: Text('Awesome Quotes!'),
+        centerTitle: true,
+        backgroundColor: Colors.redAccent,
+        foregroundColor: Colors.white,
+      ),
+      body: Column(
+        children: quotes
+            .map((quote) => Text('${quote.text} - ${quote.author}'))
+            .toList(),
 
-          // child: Image(image: AssetImage('assets/sunset.jpg')),
-          // child: Image.asset('assets/sunflower.jpg'),
-          child: Image.network(
-              'https://plus.unsplash.com/premium_photo-1703606029674-a461a6ee8045?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
-        ));
+        // Same thing as above, as arrow fn can be wriiten in one line so we used above code.
+        // children: quotes.map((quote) {
+        //   return Text(quote);
+        // }).toList(),
+      ),
+    ));
   }
 }
