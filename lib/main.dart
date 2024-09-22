@@ -26,35 +26,8 @@ class _QuoteListState extends State<QuoteList> {
         text: 'Its better to go slowly than not to move at all')
   ];
 
-  Widget quoteTemplate(quote) {
-    return Card(
-      margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              quote.text,
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.grey[600],
-              ),
-            ),
-            SizedBox(
-              height: 6.0,
-            ),
-            Text(
-              quote.author,
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.grey[800],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
+  Widget quoteTemplate(Quote quote) {
+    return QuoteCard(quote: quote);
   }
 
   @override
@@ -77,5 +50,42 @@ class _QuoteListState extends State<QuoteList> {
         // }).toList(),
       ),
     ));
+  }
+}
+
+class QuoteCard extends StatelessWidget {
+  final Quote quote;
+  QuoteCard({required this.quote});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              quote.text ?? 'No text provided',
+              style: TextStyle(
+                fontSize: 18.0,
+                color: Colors.grey[600],
+              ),
+            ),
+            SizedBox(
+              height: 6.0,
+            ),
+            Text(
+              quote.author ?? 'Unknown',
+              style: TextStyle(
+                fontSize: 14.0,
+                color: Colors.grey[800],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
