@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'quote.dart';
+import 'quote_card.dart';
 
 void main() => runApp(QuoteList());
 
@@ -26,10 +27,6 @@ class _QuoteListState extends State<QuoteList> {
         text: 'Its better to go slowly than not to move at all')
   ];
 
-  Widget quoteTemplate(Quote quote) {
-    return QuoteCard(quote: quote);
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,7 +39,7 @@ class _QuoteListState extends State<QuoteList> {
         foregroundColor: Colors.white,
       ),
       body: Column(
-        children: quotes.map((quote) => quoteTemplate(quote)).toList(),
+        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
 
         // Same thing as above, as arrow fn can be wriiten in one line so we used above code.
         // children: quotes.map((quote) {
@@ -50,42 +47,5 @@ class _QuoteListState extends State<QuoteList> {
         // }).toList(),
       ),
     ));
-  }
-}
-
-class QuoteCard extends StatelessWidget {
-  final Quote quote;
-  QuoteCard({required this.quote});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              quote.text ?? 'No text provided',
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.grey[600],
-              ),
-            ),
-            SizedBox(
-              height: 6.0,
-            ),
-            Text(
-              quote.author ?? 'Unknown',
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.grey[800],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
   }
 }
